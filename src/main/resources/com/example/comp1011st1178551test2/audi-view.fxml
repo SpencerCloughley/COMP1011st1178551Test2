@@ -16,10 +16,10 @@
          <children>
             <Label fx:id="titleLabel" prefHeight="75.0" prefWidth="150.0" text="Label" />
             <Label fx:id="addressLabel" prefHeight="75.0" prefWidth="150.0" text="Label" />
-            <TableView prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
               <columns>
                 <TableColumn fx:id="modelColumn" prefWidth="62.0" text="Model" />
-                <TableColumn prefWidth="55.0" text="Year" />
+                <TableColumn fx:id="yearColumn" prefWidth="55.0" text="Year" />
                   <TableColumn fx:id="fuelColumn" prefWidth="72.0" text="Fuel Type" />
                   <TableColumn fx:id="priceColumn" prefWidth="101.0" text="Price" />
                   <TableColumn fx:id="milesColumn" prefWidth="60.0" text="MPG" />
