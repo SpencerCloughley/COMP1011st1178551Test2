@@ -12,7 +12,7 @@ public class JSONUtility {
         Gson gson = new Gson();
         Dealership dealer = null;
         try(
-                FileReader fileReader = new FileReader("C:\\Users\\SChee\\Desktop\\Java\\COMP1011st1178551Test2\\src\\main\\resources\\com\\example\\comp1011st1178551test2\\audi-view.fxml");
+                FileReader fileReader = new FileReader("C:\\Users\\SChee\\Desktop\\Java\\COMP1011st1178551Test2\\src\\main\\resources\\com\\example\\comp1011st1178551test2\\audi.json");
                 JsonReader jsonReader = new JsonReader(fileReader);
         )
         {
