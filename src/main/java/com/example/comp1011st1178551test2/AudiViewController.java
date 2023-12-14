@@ -75,7 +75,9 @@ public class AudiViewController implements Initializable {
         updateLabels();
     }
     private void updateLabels(){
-        valueLabel.setText("Value of Cars in table: " + getTotalValue());
+        valueLabel.setText("Value of Cars in table: $" + getTotalValue());
+        totalCarsLabel.setText("Number of cars: " + getTotalCars());
+        averageSizeLabel.setText("Average engine size: " + getAverageEngine());
 
     }
     private double getTotalValue(){
@@ -87,5 +89,13 @@ public class AudiViewController implements Initializable {
     }
     private int getTotalCars(){
         return tableView.getItems().size();
+    }
+    private double getAverageEngine(){
+        double total=0;
+        for(int i=0; i< tableView.getItems().size();i++){
+            total+=engineColumn.getCellData(i);
+        }
+
+        return total/tableView.getItems().size();
     }
 }
