@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AudiViewController implements Initializable {
@@ -54,9 +55,10 @@ public class AudiViewController implements Initializable {
 
     @FXML
     private TableView<Audi> tableView;
+    Dealership dealer;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Dealership dealer = JSONUtility.JSONtoDealership();
+        dealer = JSONUtility.JSONtoDealership();
         titleLabel.setText(dealer.getDealer());
         addressLabel.setText(dealer.getAddress());
 
@@ -70,6 +72,20 @@ public class AudiViewController implements Initializable {
         tranmissionColumn.setCellValueFactory(new PropertyValueFactory<>("transmission"));
 
         tableView.getItems().addAll(((dealer.getAudis())));
+        updateLabels();
+    }
+    private void updateLabels(){
+        valueLabel.setText("Value of Cars in table: " + getTotalValue());
 
+    }
+    private double getTotalValue(){
+        double total=0;
+        for(int i=0; i< tableView.getItems().size();i++){
+            total+=priceColumn.getCellData(i);
+        }
+        return total;
+    }
+    private int getTotalCars(){
+        return tableView.getItems().size();
     }
 }
